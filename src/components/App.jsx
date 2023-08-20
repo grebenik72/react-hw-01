@@ -1,16 +1,15 @@
+import { Profile } from "./Profile";
+import user from "../user.json";
+import data from "../data.json";
+import { Statistics } from "./Statistics";
+import { GlobalStyle } from "./GlobalStyle";
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Profile items={user} />
+      <Statistics stats={data} />
+      <GlobalStyle/>
     </div>
   );
 };
