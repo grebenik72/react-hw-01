@@ -10,7 +10,7 @@ display: flex;
     max-width: 100%;
     width: 360px;
     border-radius: 8px;
-    box-shadow: rgb(255, 255, 255) -1px -1px 1px, rgb(186, 190, 204) 1px 1px 1px;
+    box-shadow: rgb(255, 255, 255) -1px -1px 1px, rgb(180, 190, 200) 1px 1px 1px;
     background-color: rgb(230, 230, 242);
 `;
 

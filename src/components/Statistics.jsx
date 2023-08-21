@@ -1,26 +1,28 @@
-export const Statistics = ({stats }) => {
-    return (
-<section class="statistics">
-  <h2 class="title">Upload stats</h2>
 
-  <ul class="stat-list">
-    <li class="item">
-      <span class="label">.docx</span>
-      <span class="percentage">4%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp3</span>
-      <span class="percentage">14%</span>
-    </li>
-    <li class="item">
-      <span class="label">.pdf</span>
-      <span class="percentage">41%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp4</span>
-      <span class="percentage">12%</span>
-    </li>
-  </ul>
-</section>
+import PropTypes from 'prop-types';
+import { Label, Percentage, Section, StatList, StatListItem, Title } from './Statistics.styled';
+
+export const Statistics = ({ stats, title }) => {
+    return (
+   <Section>
+      {title && <Title>{title}</Title>}
+      <StatList>
+        {stats.map((item, idx) => (
+          <StatListItem key={item.id} id={item.id} index={idx}>
+            <Label>{item.label}</Label>
+            <Percentage>{item.percentage}%</Percentage>
+          </StatListItem>
+        ))}
+      </StatList>
+    </Section>
     )
+};
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }).isRequired).isRequired
+
 };

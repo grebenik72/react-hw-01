@@ -1,32 +1,31 @@
 import { Avatar, Description, Label, Name, Quantity, Stats, Tag, Wraper } from "./Profile.styled";
 import PropTypes from 'prop-types';
 
-export const Profile = ({items}) => {
+export const Profile = ({ items }) => {
     return (
-<Wraper class="profile">
-  <Description class="description">
+<Wraper>
+  <Description>
     <Avatar
       src={items.avatar}
       alt="User avatar"
-      class="avatar"
     />
-                <Name class="name">{items.username}</Name>
-                <Tag class="tag">{items.tag}</Tag>
-    <Tag class="location">{items.location}</Tag>
+                <Name>{items.username}</Name>
+                <Tag>{items.tag}</Tag>
+    <Tag >{items.location}</Tag>
   </Description>
 
-  <Stats class="stats">
+  <Stats>
     <Label>
-      <span class="label">Followers</span>
-      <Quantity class="quantity">{items.stats.followers}</Quantity>
+      <span>Followers</span>
+      <Quantity>{items.stats.followers}</Quantity>
     </Label>
     <Label>
-      <span class="label">Views</span>
-      <Quantity class="quantity">{items.stats.views}</Quantity>
+      <span>Views</span>
+      <Quantity>{items.stats.views}</Quantity>
     </Label>
     <Label>
-      <span class="label">Likes</span>
-      <Quantity class="quantity">{items.stats.likes}</Quantity>
+      <span>Likes</span>
+      <Quantity>{items.stats.likes}</Quantity>
     </Label>
   </Stats>
 </Wraper>
@@ -34,13 +33,14 @@ export const Profile = ({items}) => {
 };
 
 Profile.propTypes = {
-  username: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
+  items: PropTypes.object,
+  username: PropTypes.string,
+  avatar: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
   stats: PropTypes.shape({
     followers: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
 };

@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <div>
       <Profile items={user} />
-      <Statistics stats={data} />
+      <Statistics title="Upload stats" stats={data} />
       <GlobalStyle/>
     </div>
   );
